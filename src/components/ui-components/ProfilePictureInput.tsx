@@ -14,6 +14,8 @@ const ProfilePictureInput = (props: any) => {
     helperText,
     touched,
     value,
+    sx,
+    placeholderImage,
   } = props;
   return (
     <Box
@@ -42,11 +44,8 @@ const ProfilePictureInput = (props: any) => {
         <PreviewImage
           file={value}
           label={label}
-          sx={{
-            borderRadius: "50%",
-            width: "50%",
-            minWidth: "100px",
-          }}
+          sx={{ ...sx, border: error ? "solid 1px red" : "" }}
+          placeholderImage={placeholderImage}
         />
       </IconButton>
       {label && !error && !touched && <FormHelperText>{label}</FormHelperText>}
