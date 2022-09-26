@@ -6,9 +6,9 @@ const CardWithLabel = (props: any) => {
   const { title, children } = props;
 
   return (
-    <Card sx={{ display: "flex", width: "100%" }}>
-      <CardContent sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }} gutterBottom>
+    <Card sx={{ display: "flex", width: "100%", marginBottom: "16px" }}>
+      <CardContent sx={{ display: "flex", flexDirection: "column", width: "100%", boxShadow: "none" }}>
+        <Typography variant="h6" sx={{ fontWeight: "bold" }} gutterBottom>
           {title}
         </Typography>
         {children}
