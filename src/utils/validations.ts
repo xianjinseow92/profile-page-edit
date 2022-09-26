@@ -34,22 +34,37 @@ export const validationSchema = yup.object({
         companyLogoImage: yup
           .mixed()
           .required(
-            "We're gonna need your company picture too, for some reason"
+            "Image required."
           ),
         jobDescription: yup.string().required("Describe your job, baby."),
         startDate: yup.date().required("Please enter a valid date.").nullable(),
         endDate: yup // TODO: Need to check how required interacts with UI if TextField for end date is not present
           .date()
-          .typeError("You didn't input a date?")
-          .required()
-          .when("startDate", (startDate) =>
-            startDate
-              ? yup
-                  .date()
-                  .min(startDate, "End date can't be earlier than start date!")
-                  .typeError("End date is required")
-              : yup.date()
-          ),
+          .nullable()
+          .when("isCurrentPosition", (isCurrentPosition: any) => {
+            if (!isCurrentPosition) {
+              return yup
+                .date()
+                .required("Please enter a valid date.")
+                .nullable()
+                .when("startDate", (startDate) =>
+                  startDate
+                    ? yup
+                        .date()
+                        .min(
+                          startDate,
+                          "End date can't be earlier than Start date!"
+                        )
+                        .nullable()
+                    : yup
+                        .date()
+                        .nullable()
+                        .required("Please enter a valid date.")
+                );
+            } else {
+              return yup.date().nullable().notRequired();
+            }
+          }),
         isCurrentPosition: yup.boolean(),
       })
     )
