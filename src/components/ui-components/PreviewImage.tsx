@@ -3,16 +3,9 @@ import DefaultProfileImage from "assets/profilePic.jpeg";
 
 import Box from "@mui/system/Box";
 
-const PreviewImage = ({
-  file,
-  label,
-  sx,
-}: {
-  file: File;
-  label: string;
-  sx: any;
-}) => {
+const PreviewImage = (props: any) => {
   const [preview, setPreview] = useState<string>();
+  const { file, label, sx, placeholderImage } = props;
 
   if (file) {
     const fileReader = new FileReader();
@@ -27,7 +20,13 @@ const PreviewImage = ({
     <>
       <Box
         component="img"
-        src={preview ? preview : DefaultProfileImage}
+        src={
+          preview
+            ? preview
+            : placeholderImage
+            ? placeholderImage
+            : DefaultProfileImage
+        }
         sx={{
           ...sx,
         }}
