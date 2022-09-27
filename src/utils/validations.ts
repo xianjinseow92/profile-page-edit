@@ -31,11 +31,7 @@ export const validationSchema = yup.object({
             "Your job title can't contain special characters. That job can't really exist."
           ),
         company: yup.string().required("We need to know where you work at."),
-        companyLogoImage: yup
-          .mixed()
-          .required(
-            "Image required."
-          ),
+        companyLogoImage: yup.mixed().required("Image required."),
         jobDescription: yup.string().required("Describe your job, baby."),
         startDate: yup.date().required("Please enter a valid date.").nullable(),
         endDate: yup // TODO: Need to check how required interacts with UI if TextField for end date is not present
@@ -67,6 +63,5 @@ export const validationSchema = yup.object({
           }),
         isCurrentPosition: yup.boolean(),
       })
-    )
-    .required(),
+    ).required(),
 });
