@@ -38,7 +38,8 @@ const useGetUserProfileData = () => {
     userProfileInitialState
   );
   const [isLoading, setIsLoading] = useState<Boolean>(false);
-  const secondsToCompleteCall = 2000;
+  const secondsToCompleteCall = 1000;
+
   const mockAPICall = () => {
     setIsLoading(true);
     setTimeout(() => {
