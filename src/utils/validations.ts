@@ -6,7 +6,7 @@ export const validationSchema = yup.object({
     .string()
     .required("A name is required!")
     .matches(
-      /^[a-zA-Z]+$/g,
+      /^[a-zA-Z ]+$/g,
       "A name can't contain numbers/special characters. We're not progressive like that."
     ),
   age: yup
