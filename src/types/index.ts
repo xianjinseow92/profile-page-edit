@@ -6,14 +6,16 @@ export interface IRoute {
 export interface IWorkExperience {
     title: string,
     company: string,
-    companyLogoImage: string | File, // TODO: This needs to be checked
+    companyLogoImage: string | File,
     jobDescription: string,
     startDate: string | null,
-    endDate?: string | null, // if current position, user will not have end date
+    endDate?: string | null,
     isCurrentPosition: boolean
 }
 export interface IProfileFormPayload {
   name: string;
   age: number | undefined;
+  id: number,
+  profileImage: string | File;
   workExperiences: IWorkExperience[];
 }
