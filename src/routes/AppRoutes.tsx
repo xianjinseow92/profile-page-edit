@@ -15,7 +15,7 @@ const AppRoutes = () => {
         {/* Redirects to home page on every route that does not match all routes that exist */}
         <Route
           path="*"
-          element={<Navigate to={get(paths, "HOME")} replace />}
+          element={<Navigate to={get(paths, "PROFILE")} replace />}
         />
       </Routes>
     </PageLayout>

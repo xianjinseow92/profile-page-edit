@@ -9,10 +9,10 @@ export const paths = {
 }
 
 const routes: IRoute[] = [
-    {
-        path: paths.HOME,
-        component: <h1>This is the main page</h1>
-    },
+    // {
+    //     path: paths.HOME,
+    //     component: <h1>This is the main page</h1>
+    // },
     {
         path: paths.PROFILE,
         component: <Profile/>
