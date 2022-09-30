@@ -5,7 +5,7 @@ import Profile from "pages/Profile";
 
 export const paths = {
     HOME: "/home",
-    PROFILE: "/profile",
+    PROFILE: "/profile-page-edit",
 }
 
 const routes: IRoute[] = [
