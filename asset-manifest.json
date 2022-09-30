@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/profile/static/css/main.47ad3774.css",
-    "main.js": "/profile/static/js/main.839df669.js",
-    "static/media/companyLogo.jpeg": "/profile/static/media/companyLogo.114450ad9a1ba05a2586.jpeg",
-    "service-worker.js": "/profile/service-worker.js",
-    "static/media/profilePic.jpeg": "/profile/static/media/profilePic.98df88ac9511b355a676.jpeg",
-    "index.html": "/profile/index.html",
-    "main.47ad3774.css.map": "/profile/static/css/main.47ad3774.css.map",
-    "main.839df669.js.map": "/profile/static/js/main.839df669.js.map"
+    "main.css": "/profile-page-edit/static/css/main.47ad3774.css",
+    "main.js": "/profile-page-edit/static/js/main.2a2f3cdb.js",
+    "static/media/companyLogo.jpeg": "/profile-page-edit/static/media/companyLogo.114450ad9a1ba05a2586.jpeg",
+    "service-worker.js": "/profile-page-edit/service-worker.js",
+    "static/media/profilePic.jpeg": "/profile-page-edit/static/media/profilePic.98df88ac9511b355a676.jpeg",
+    "index.html": "/profile-page-edit/index.html",
+    "main.47ad3774.css.map": "/profile-page-edit/static/css/main.47ad3774.css.map",
+    "main.2a2f3cdb.js.map": "/profile-page-edit/static/js/main.2a2f3cdb.js.map"
   },
   "entrypoints": [
     "static/css/main.47ad3774.css",
-    "static/js/main.839df669.js"
+    "static/js/main.2a2f3cdb.js"
   ]
 }
