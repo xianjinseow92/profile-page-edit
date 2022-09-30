@@ -1,5 +1,6 @@
 {
-  "name": "editable-profile",
+  "name": "profile",
+  "homepage": "http://lammishy.github.io/profile",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
