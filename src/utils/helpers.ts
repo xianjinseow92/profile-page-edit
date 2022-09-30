@@ -7,34 +7,6 @@ import {
 import { FIREBASE_STORAGE_IMAGE_PATH } from "constants/index";
 import { Dispatch } from "react";
 
-export const uploadImageWithType = (
-  imgFile: File,
-  type: string,
-  setImageList: Dispatch<React.SetStateAction<string[]>>
-) => {
-  const storage = getStorage();
-  const imageRef = ref(
-    storage,
-    `${FIREBASE_STORAGE_IMAGE_PATH}${imgFile.name}${type}`
-  );
-  const uploadTask = uploadBytesResumable(imageRef, imgFile);
-
-  // Get URL for each image
-  uploadTask.on(
-    "state_changed",
-    (snapshot) => {},
-    (error) => {
-      console.log("Error: ", error);
-    },
-    () => {
-      getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-        console.log("File available at: ", downloadUrl);
-        setImageList((prevList) => [...prevList, downloadUrl]);
-      });
-    }
-  );
-};
-
 export const createImageFileTypeListFromUserProfileData = (
   userProfileData: any
 ): { file: File; type: string }[] => {
