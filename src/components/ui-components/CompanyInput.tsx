@@ -3,9 +3,17 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import get from "lodash/get";
 import FormHelperText from "@mui/material/FormHelperText";
+import { uploadImageWithTypeAndReassign } from "utils/helpers";
 
 const CompanyInput = (props: any) => {
-  const { workExperience, formik, index, placeholderImage } = props;
+  const {
+    workExperience,
+    formik,
+    index,
+    placeholderImage,
+    requiredText,
+    setIsLoading,
+  } = props;
   const companyError =
     get(formik.touched, `workExperiences[${index}].company`) &&
     Boolean(get(formik.errors, `workExperiences[${index}].company`));
@@ -34,9 +42,12 @@ const CompanyInput = (props: any) => {
             id={`workExperiences[${index}].companyLogoImage`}
             name={`workExperiences[${index}].companyLogoImage`}
             onChange={(event: any) => {
-              formik.setFieldValue(
+              const file = event.target.files[0];
+              uploadImageWithTypeAndReassign(
+                file,
                 `workExperiences[${index}].companyLogoImage`,
-                event.target.files[0]
+                formik.setFieldValue,
+                setIsLoading
               );
             }}
             onBlur={() => {
@@ -67,7 +78,7 @@ const CompanyInput = (props: any) => {
             key={`workExperiences[${index}].company`}
             fullWidth
             name={`workExperiences[${index}].company`}
-            label="Company"
+            label="Company *"
             value={workExperience.company}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -76,6 +87,9 @@ const CompanyInput = (props: any) => {
         </Box>
       </Box>
       <Box>
+        {!error && requiredText && (
+          <FormHelperText>{requiredText}</FormHelperText>
+        )}
         {error && helperText && (
           <FormHelperText error>{helperText}</FormHelperText>
         )}
