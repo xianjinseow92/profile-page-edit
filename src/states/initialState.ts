@@ -1,15 +1,16 @@
 export const userProfileInitialState = {
     profileImage: "",
     name: "",
-    age: undefined,
+    age: "",
+    id: 69,
     workExperiences: [
       {
         title: "",
         company: "",
         companyLogoImage: "",
         jobDescription: "",
-        startDate: null,
-        endDate: null,
+        startDate: "",
+        endDate: "",
         isCurrentPosition: false,
       },
     ],
