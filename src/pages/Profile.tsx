@@ -37,7 +37,7 @@ const Profile = () => {
       setIsSubmitting(false);
       Alert.success("Your profile has been updated!");
     } catch (error) {
-      console.log(error);
+      console.log("Error: ", error);
       setIsSubmitting(false);
       Alert.error("We're so sorry. Something went wrong. Please try again.");
     }
