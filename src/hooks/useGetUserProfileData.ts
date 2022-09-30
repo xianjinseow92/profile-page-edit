@@ -1,54 +1,35 @@
 import { useState, useEffect } from "react";
 import { IWorkExperience, IProfileFormPayload } from "types";
 import { userProfileInitialState } from "states/initialState";
+import { userProfilesCollectionRef } from "apis/fireBaseUserProfileData";
+import { DocumentData, onSnapshot } from "firebase/firestore";
 
 /**
  * The purpose of this hook is to declutter ProfilePage component
  * And separate logic of retrieving user data.
  * @returns {userProfileData}
- */
-
-const mockSuccessRes = {
-  success: true,
-  result: {
-    profileImage: "",
-    name: "XJ",
-    age: 30,
-    workExperiences: [
-      {
-        title: "SWE",
-        company: "CirclesLife",
-        companyLogoImage: "",
-        jobDescription: "Worked on a few projects here and there",
-        startDate: null,
-        endDate: null,
-        isCurrentPosition: true,
-      },
-    ],
-  },
-};
-
-const mockFailureRes = {
-  success: false,
-  result: {},
-};
+*/
 
 const useGetUserProfileData = () => {
-  const [userProfileData, setUserProfileData] = useState<IProfileFormPayload>(
-    userProfileInitialState
-  );
+  const [userProfileData, setUserProfileData] = useState<
+    IProfileFormPayload | Object | DocumentData
+  >(userProfileInitialState);
   const [isLoading, setIsLoading] = useState<Boolean>(false);
-  const secondsToCompleteCall = 1000;
 
-  const mockAPICall = () => {
+  const callFirebaseStore = () => {
     setIsLoading(true);
-    setTimeout(() => {
-      const { success, result } = mockSuccessRes;
-      if (success) {
-        setUserProfileData(result);
+    return onSnapshot(userProfilesCollectionRef, (querySnapshot) => {
+      const items: DocumentData[] = [];
+      querySnapshot.forEach((item) => {
+        items.push(item.data());
+      });
+      if (items[0]) {
+        setUserProfileData(items[0]);
+      } else { 
+        setUserProfileData(userProfileInitialState);
       }
       setIsLoading(false);
-    }, secondsToCompleteCall);
+    });
   };
 
   useEffect(() => {
@@ -57,7 +38,11 @@ const useGetUserProfileData = () => {
      * If userProfileData is empty (ie, API call returns nothing because it doesn't exist in DB)
      * Return a initialValue for userProfile.
      */
-    mockAPICall();
+    const unsub = callFirebaseStore();
+
+    return () => {
+      unsub();
+    }
   }, []);
 
   return { userProfileData, isLoading };
