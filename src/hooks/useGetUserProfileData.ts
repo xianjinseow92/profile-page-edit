@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { IWorkExperience, IProfileFormPayload } from "types";
+import { IProfileFormPayload } from "types";
 import { userProfileInitialState } from "states/initialState";
 import { userProfilesCollectionRef } from "apis/fireBaseUserProfileData";
 import { DocumentData, onSnapshot } from "firebase/firestore";
