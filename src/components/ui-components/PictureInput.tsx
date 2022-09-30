@@ -2,6 +2,7 @@ import IconButton from "@mui/material/IconButton";
 import Box from "@mui/system/Box";
 import FormHelperText from "@mui/material/FormHelperText";
 import PreviewImage from "./PreviewImage";
+import { Element } from "react-scroll";
 
 const PictureInput = (props: any) => {
   const {
@@ -26,6 +27,7 @@ const PictureInput = (props: any) => {
         alignItems: "center",
       }}
     >
+      <Element name={name}/>
       <IconButton
         color="primary"
         aria-label="upload picture"
