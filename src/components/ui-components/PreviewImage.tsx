@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import DefaultProfileImage from "assets/profilePic.jpeg";
 
 import Box from "@mui/system/Box";
 
@@ -17,8 +16,6 @@ const PreviewImage = (props: any) => {
           result ? setPreview(result) : setPreview("Error loading image.");
         };
       } else {
-        // debugger;
-        console.log(file);
         setPreview(file);
       }
     }
@@ -28,17 +25,15 @@ const PreviewImage = (props: any) => {
     <>
       <Box
         component="img"
-        src={
-          preview
-            ? preview
-            : placeholderImage
-            ? placeholderImage
-            : DefaultProfileImage
-        }
+        src={preview ? preview : placeholderImage ? placeholderImage : null}
         sx={{
           ...sx,
         }}
         alt={label}
+        onError={({ currentTarget }: { currentTarget: any }) => {
+          currentTarget.onerror = null; // prevents looping
+          currentTarget.src = placeholderImage;
+        }}
       />
     </>
   );
