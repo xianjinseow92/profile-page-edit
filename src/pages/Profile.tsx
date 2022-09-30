@@ -24,6 +24,8 @@ import { userProfilesCollectionRef } from "apis/fireBaseUserProfileData";
 // Utils
 import Alert from "react-s-alert";
 
+import ResetUserProfileButton from "components/forms/functional-components/ResetUserProfileButton";
+
 const Profile = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { userProfileData, isLoading } = useGetUserProfileData();
@@ -32,7 +34,10 @@ const Profile = () => {
     setIsSubmitting(true);
     // Submit payload to firebase database
     try {
-      const userProfileRef = doc(userProfilesCollectionRef, `${userProfileData.id}`);
+      const userProfileRef = doc(
+        userProfilesCollectionRef,
+        `${userProfileData.id}`
+      );
       setDoc(userProfileRef, userProfileData);
       setIsSubmitting(false);
       Alert.success("Your profile has been updated!");
@@ -73,7 +78,17 @@ const Profile = () => {
           <PuffLoader size={200} />
         </Box>
       ) : (
-        <UserProfileForm formik={formik} isLoading={isSubmitting} setIsLoading={setIsSubmitting} />
+        <>
+          <UserProfileForm
+            formik={formik}
+            isLoading={isSubmitting}
+            setIsLoading={setIsSubmitting}
+          />
+          <ResetUserProfileButton
+            setIsLoading={setIsSubmitting}
+            isLoading={isLoading}
+          />
+        </>
       )}
     </Container>
   );
