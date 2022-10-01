@@ -2,7 +2,7 @@
 
 Hello! Welcome to the User Profile Page update! I hope you enjoy poking around this repo.
 
-You may access this site via <a href="https://xianjinseow92.github.io/profile-page-edit/" target="_blank">https://xianjinseow92.github.io/profile-page-edit/</a>.
+You may access this site <a href="https://xianjinseow92.github.io/profile-page-edit/" target="_blank">here</a>.
 
 # Features
 
