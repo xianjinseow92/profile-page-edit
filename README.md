@@ -39,9 +39,15 @@ In your terminal, enter the following code.
 
 ```
 $ git clone https://github.com/xianjinseow92/profile-page-edit.git <your-folder-name>
-$ yarn start
+$ yarn install
 ```
 
+Once the packages are installed, you may run this project locally.
+```
+$ yarn start
+```  
+
+Happy exploring!
 ## Tech Stack
 
 ```
