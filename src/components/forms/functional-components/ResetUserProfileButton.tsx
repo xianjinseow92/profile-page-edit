@@ -19,9 +19,12 @@ export const ResetUserProfileButton = (props: any) => {
     try {
       const userProfileRef = doc(userProfilesCollectionRef, "69");
       setDoc(userProfileRef, userProfileInitialState);
+      console.log("userProfileRef: ", userProfileInitialState);
       setIsLoading(false);
       Alert.success("Profile has been reset!");
-      window.location.reload(); // refresh page so it can pull latest data
+      setTimeout(() => {
+        window.location.reload(); // refresh page so it can pull latest data
+      }, 1000);
       return false;
     } catch (error) {
       console.log("Error: ", error);
