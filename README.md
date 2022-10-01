@@ -4,41 +4,42 @@ Hello! Welcome to the User Profile Page update! I hope you enjoy poking around t
 
 This simple application was created using React and Firebase!
 
-## Description
+## Features
 
-A SPA comprising of a form that a user can fill up with their personal details and submit to a database.  
+A SPA comprising of a form that a user can fill with their personal details and submit to a database.  
+
+### 1: Validation
 The form features field-level validation and error checking for the following fields:
 
-1. Name (required)
-
-- Only strings allowed
-
+1. Name (required, only strings allowed)
 2. Profile Picture (required)
-3. Age (required)
-
-- Only numbers allowed
-- Only above 18 allowed
+3. Age (required, only numbers && above 18 allowed)
 
 4. Work Experience
-
-- Start Date (required field)
-- End Date (required field, if current position checkbox not clicked)
-- Company (required)
+- title (required, only strings allowed && special characters not allowed)
+- Start Date (required)
+- End Date (required, if current position checkbox not checked)
+- Company (required, only strings allowed)
 - Company logo (required)
-- Job Description (required)
+- Job Description (required, only strings allowed)
 
-It also comes with a reset profile button to allow the user to completely reset/clear his profile data.
+### 2: Auto scroll 
+On submit, should there be any fields that are invalid, the form assists the user by automatically scrolling to the invalid field.  
 
-## Installation
 
-### Via terminal
+## 3: Reset Data
+It also comes with a reset profile button to allow the user to reset/clear his/her profile data.
+
+# Installation
+
+#### Via terminal
 
 ```
 $ git clone https://github.com/xianjinseow92/profile-page-edit.git <your-folder-name>
 $ yarn start
 ```
 
-## Tech Stacks
+## Tech Stack
 
 React  
 Firebase
@@ -47,7 +48,7 @@ Material UI
 ## Packages
 
 ```
-yup (for form validation)
+yup
 react-spinner
 react-scroll
 ```
