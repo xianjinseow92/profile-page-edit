@@ -1,12 +1,13 @@
 # Editable User Profile Page
 Hello! Welcome to the User Profile Page update! I hope you enjoy poking around this repo.  
+  
 You may access this site via `https://xianjinseow92.github.io/profile-page-edit/`.
 
-## Features
+# Features
 
 A SPA comprising of a form that a user can fill with their personal details and submit to a database.  
 
-#### 1. Validation
+### 1. Validation
 The form features field-level validation and error checking for the following fields:
 
 1. Name (required, only strings allowed)
@@ -21,11 +22,11 @@ The form features field-level validation and error checking for the following fi
 - Company logo (required)
 - Job Description (required, only strings allowed)
 
-#### 2. Auto scroll 
+### 2. Auto scroll 
 On submit, should there be any fields that are invalid, the form assists the user by automatically scrolling to the invalid field.  
 
 
-#### 3. Reset Data
+### 3. Data Reset
 It also comes with a reset profile button to allow the user to reset/clear his/her profile data.
 
 # Installation
@@ -35,7 +36,6 @@ $ git clone https://github.com/xianjinseow92/profile-page-edit.git <your-folder-
 $ yarn start
 ```
 
-The 
 ## Tech Stack
 ```
 React  
@@ -49,6 +49,9 @@ Material UI
 yup
 react-spinner
 react-scroll
+lodash
+dayjs
+formik
 ```
 
 ## Available Scripts
