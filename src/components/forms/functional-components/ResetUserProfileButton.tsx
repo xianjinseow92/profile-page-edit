@@ -19,7 +19,6 @@ export const ResetUserProfileButton = (props: any) => {
     try {
       const userProfileRef = doc(userProfilesCollectionRef, "69");
       setDoc(userProfileRef, userProfileInitialState);
-      console.log("userProfileRef: ", userProfileInitialState);
       setIsLoading(false);
       Alert.success("Profile has been reset!");
       setTimeout(() => {
