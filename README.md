@@ -39,6 +39,7 @@ In your terminal, enter the following code.
 
 ```
 $ git clone https://github.com/xianjinseow92/profile-page-edit.git <your-folder-name>
+$ cd <your-folder-name>
 $ yarn install
 ```
 
